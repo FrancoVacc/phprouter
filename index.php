@@ -43,5 +43,6 @@ $router->delete('/products/{id}', [productController::class, 'destroyProduct']);
 
 //? categorias
 $router->get('/categories', [categoryController::class, 'getAll']);
+$router->post('/categories', [categoryController::class, 'newCategory']);
 
 $router->dispatch();

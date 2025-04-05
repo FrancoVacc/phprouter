@@ -23,4 +23,17 @@ class Category
             return ['Message' => 'No category registred'];
         }
     }
+    public function storage($category)
+    {
+        global $con;
+        $stmt = $con->prepare("INSERT INTO category (name) VALUES(?)");
+        $stmt->bind_param('s', $category);
+        $stmt->execute();
+
+        if ($stmt->error) {
+            return ['Message' => 'Error on adding resourse'];
+        } else {
+            return ['Message' => 'Resourse added successfully'];
+        }
+    }
 }
